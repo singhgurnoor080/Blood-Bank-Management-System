@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<title>Infinite Blood Bank</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url("/static/images/11.jpg");
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="{% url 'homepage' %}" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    
+    
+    
+    <div class="w3-col s3">
+      <a href="{% url 'search' %}" class="w3-button w3-block w3-black">SEARCH</a>
+    </div>
+    
+    <div class="w3-col s3">
+      <a href="{% url 'location' %}" class="w3-button w3-block w3-black">BLOOD BANK NEARBY</a>
+    </div>
+    
+    <div class="w3-col s3">
+      <a href="{% url 'user_about' %}" class="w3-button w3-block w3-black">ABOUT</a>
+    </div>
+    
+    
+    
+    <div class="w3-col s3">
+      <a href="{% url 'user_contact' %}" class="w3-button w3-block w3-black">CONTACT US</a>
+    </div>
+
+    <div class="w3-col s3">
+      <a href="{% url 'logout' %}" class="w3-button w3-block w3-black">LOGOUT</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text-blue" style="font-size:90px">Infinite Blood Bank</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE BLOOD BANK</span></h5>
+    <p>Nature of the Organization: It is totally non-political, non-communal, non-regional, non-racial, secular and voluntary social organization. Goals and objectives: Initiating social movement to build up a healthy society through motivating voluntary blood donation, donating blood voluntarily and others services and awareness programs. Programs: Motivating Students and Young generation of Bangladesh to donate blood voluntarily. Free blood group test. Donating blood voluntarily for patients. Motivating people for voluntary blood donation and taking part in service and awareness program. Taking relief and rehabilitation programs to overcome natural and human created calamities.</p>
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><i>"Blood Buddies is for public donationcenter with blood donation members in the changing health care system. - Specialist blood donors and clinical supervision. - Increasing communication with our members. - High quality assessment, diagnosis and treatment. - Examine critically to ensure alignment. - The extra care of a multi-disciplinary team.</i></p>
+      
+    </div>
+    
+  </div>
+</div>
+
+<!-- Menu Container -->
+<div class="w3-container" id="menu">
+  <div class="w3-content" style="max-width:700px">
+ 
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">THE PROCEDURE</span></h5>
+  
+    <div class="w3-row w3-center w3-card w3-padding">
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Eat');" id="myLink">
+        <div class="w3-col s6 tablink">Donor</div>
+      </a>
+      <a href="javascript:void(0)" onclick="openMenu(event, 'Drinks');">
+        <div class="w3-col s6 tablink">Recipient</div>
+      </a>
+    </div>
+
+    <div id="Eat" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Register yourself</h5>
+      <p class="w3-text-grey">First register yourself giving all details</p><br>
+    
+      <h5>Login</h5>
+      <p class="w3-text-grey">Then login and see all the deatils of donor list and search by thier blood group and address</p><br>
+    
+      
+    </div>
+
+    <div id="Drinks" class="w3-container menu w3-padding-48 w3-card">
+      <h5>Register yourself</h5>
+      <p class="w3-text-grey">First register yourself giving all details. This will help us in future contacts</p><br>
+    
+      <h5>Login</h5>
+      <p class="w3-text-grey">Then login and see all the deatils of donor list and search by thier blood group and address</p><br>
+    
+    </div>  
+    <img src="/static/images/111.jpg" style="width:100%;max-width:1000px;margin-top:32px;">
+  </div>
+</div>
+
+<!-- Contact/Area Container -->
+<div class="w3-container" id="where" style="padding-bottom:32px;">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">DONOR OPINION</span></h5>
+    
+    <img src="/static/images/222.jpg" class="w3-image" style="width:100%">
+    <p><span class="w3-tag">FYI!</span> I wish I could tell you my donor how grateful I am for your selfless act.You gave me new life. We may be coworkers or schoolmates or just two in the same community.I'm very grateful to you.</p>
+    
+    
+  </div>
+</div>
+
+<!-- End page content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+  <p>Thank you </p>
+</footer>
+
+<script>
+// Tabbed Menu
+function openMenu(evt, menuName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("menu");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < x.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+  }
+  document.getElementById(menuName).style.display = "block";
+  evt.currentTarget.firstElementChild.className += " w3-dark-grey";
+}
+document.getElementById("myLink").click();
+</script>
+
+</body>
+</html>

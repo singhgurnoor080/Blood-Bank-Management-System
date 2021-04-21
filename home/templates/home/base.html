@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+{% load crispy_forms_tags %}
+<head>
+	<title>Register</title>
+
+<style>
+html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background: linear-gradient(#141e30, #243b55);
+}
+
+input{
+	background-color: gray;
+}
+
+h1 { 
+	color: #ffffff; font-family: nyt-stymie-light; font-style:italic; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; text-align: center;}
+
+
+</style>
+
+
+</head>
+<body>
+	<h1 > REGISTRATION FORM</h1>
+	<a href="/" style="color: pink;"><b>Home</b></a><br><br>
+<form method = "POST" style="color:white;">
+	{% csrf_token %}
+
+	{{form|crispy}}
+	<br>
+	<input type = submit value="Register" > </input>
+</form>
+</body>
+</html>

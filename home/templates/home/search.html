@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>search</title>
+
+<style>
+
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
+
+.styled-table tbody tr.active-row {
+    font-weight: bold;
+    color: #009879;
+}
+
+h1 { 
+    color: black; font-family: nyt-stymie-light; font-style:italic; font-size: 45px; font-weight: normal; line-height: 48px; margin: 0; text-align: center;}
+
+</style>
+
+</head>
+<body style = "background-color:gray;">
+  <form method="get">
+    {% csrf_token %}
+    <h1>SEARCH</h1>
+    <a href="{% url 'homepage' %}" style="background-color: pink;"><b>Home</b></a><br><br>
+    <!-- <label>Username</label> -->
+    {% for x in donor_search.form %}
+    {{x.label}}
+    {{x}}
+    {% endfor %}
+    <br><br>
+    <button type="submit" style = "background-color:gray;"><b>Search</b></button>
+    
+  </form>
+<br><hr>
+	<h3>DONOR LIST</h3>
+
+<table class="styled-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Emails</th>
+            <th>Blood_group</th>
+            <th>Phone_no</th>
+            <th>pincode</th>
+            <th>address</th>
+            <th>allegeries</th>
+            <th>cardiac_disease</th>
+            <th>bleeding_disorder</th>
+        </tr>
+    </thead>
+    <tbody>
+      {% for donor in donors %}
+        <tr>
+            <td>{{donor.name}}</td>
+            <td>{{donor.email}}</td>
+            <td>{{donor.blood_type}}</td>
+            <td>{{donor.phone_no}}</td>
+            <td>{{donor.pincode}}</td>
+            <td>{{donor.address}}</td>
+            <td>{{donor.allegeries}}</td>
+            <td>{{donor.cardiac_disease}}</td>
+            <td>{{donor.bleeding_disorder}}</td>
+        </tr>
+        
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+</body>
+</html>

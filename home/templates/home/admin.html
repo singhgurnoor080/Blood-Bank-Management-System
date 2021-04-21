@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>admin</title>
+    <style>    
+p {text-align: center;}
+h1 {text-align: center;color: blue;}
+a {color:black;}
+a:hover {
+  color: blue;
+  background-color: gray; 
+  font-size: 115%;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 8px 8px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.8;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {opacity: 1}
+</style>
+</head>
+<body style = "background-color:orange;">
+    <h1>WELCOME ADMIN</h1>
+    <a href='{% url "logout" %}'><b>Logout</b></a>
+    <br>
+	<h4>DONORS</h4>
+{% for x in donors %}
+    {{x.name}}<br>
+    {{x.email}}<br>
+    {{x.phone_no}}<br>
+    {{x.blood_type}}<br>
+    {{x.address}}
+    <br>
+    <form method='POST'>
+    {% csrf_token %}
+    <input type = 'hidden' name = 'current_user' value = {{x.id}}>
+   <input type="submit" value='delete' class="button"> <br><hr>
+</form>
+    {% endfor %}
+<hr>
+<h4>RECIEPENTS</h4>
+{% for x in reciepent %}
+
+   {{x.name}}<br>
+    {{x.email}}<br>
+    {{x.phone_no}}<br>
+    {{x.blood_type}}<br>
+    {{x.pincode}}<br>
+    {{x.address}}
+
+    <br>
+    <form method='POST'>
+    {% csrf_token %}
+    <input type = 'hidden' name = 'current_user' value = {{x.id}}>
+   <input type="submit" value='delete' class="button"> <br>
+</form>
+    {% endfor %}
+
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	{% for message in messages %}
+	<p>{{message}}</p>
+	{% endfor %}
+<form method="POST">
+    {% csrf_token %}
+    
+    
+    <button type="submit">Delete</button>
+    
+  </form>
+</body>
+</html>
